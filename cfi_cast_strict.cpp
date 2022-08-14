@@ -1,10 +1,10 @@
-#include <iostream>
+#include <cstdio>
 
 struct Base {
     Base() {}
     virtual ~Base() {}
     virtual void func() {
-        std::cout << "Base: " << __FUNCTION__ << "\n";
+        printf("Base: %p \n", (void *)__FUNCTION__);
     } 
 };
 

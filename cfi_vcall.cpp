@@ -1,10 +1,10 @@
-#include <iostream>
+#include <cstdio>
 
 struct Base {
     Base() {}
     virtual ~Base() {}
     virtual void printMe() { 
-        std::cout << "Base::printMe\n";
+	    printf("Base::printMe\n");
     }
 };
 
@@ -13,7 +13,7 @@ struct Derived : Base {
     virtual ~Derived() {}
 
     virtual void printMe() {
-        std::cout << "Derived::printMe\n";
+	    printf("Derived::printMe\n");
     }
 };
 
@@ -24,8 +24,8 @@ struct Evil {
     virtual ~Evil() {}
 
     virtual void makeAdmin() {
-        std::cout << "CFI Prevents this control flow\n";
-        std::cout << "Evil::makeAdmin\n";
+	    printf("CFI Prevents this control flow\n");
+	    printf("Evil::makeAdmin\n");
     }
 };
 
