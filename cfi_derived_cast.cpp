@@ -1,4 +1,5 @@
-#include <iostream>
+#include <cstdio>
+#include <string>
 
 struct Base {
     Base(const std::string &s) : name(s) {}
@@ -14,7 +15,7 @@ struct Derived : Base {
     const unsigned long variable  = 0x12345678;
 
     void printName() {
-        std::cout << "I am: " << name << ", my member variable is: " << std::hex << variable << std::endl;
+        printf("Base: %s %#lx \n", name.c_str(), variable);
     }
 };
 

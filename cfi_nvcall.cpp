@@ -1,13 +1,15 @@
-#include <iostream>
+#include <cstdio>
 #include <string>
 
 struct Account {
     Account(const std::string &s) : name(s) {}
     virtual ~Account() {}
     void showName() {
-        std::cout << "Account name is: " << name << std::endl;
+        printf("Account name is: %s\n", name.c_str());
     }
-    void adminStuff() { std::cout << "Not Implemented" << std::endl; }
+    void adminStuff() { 
+        printf("Not Implemented\n");
+	}
     std::string name;
 };
 
@@ -15,7 +17,7 @@ struct UserAccount : Account {
     UserAccount(const std::string &s) : Account(s) {}
     virtual ~UserAccount() {}
     void adminStuff() { 
-        std::cout << "Admin Work not permitted for a user account!" << std::endl;
+        printf("Admin Work not permitted for a user account!\n");
     }
 };
 
@@ -23,7 +25,7 @@ struct AdminAccount : Account {
     AdminAccount(const std::string &s) : Account(s) {}
     virtual ~AdminAccount() {}
     void adminStuff() { 
-        std::cout << "Would do admin work in context of: " << this->name << std::endl;
+        printf("Would do admin work in context of: %s\n", this->name.c_str());
     }
 };
 
@@ -35,11 +37,11 @@ int main(int argc, const char *argv[]) {
     (void)(argc);
     (void)(argv);
 
-    std::cout << "Admin check: " << std::endl;
+    printf("Admin check: \n");
     admin->showName();
     admin->adminStuff();
 
-    std::cout << "User check: " << std::endl;
+    printf("User check: \n");
     user->showName();
     user->adminStuff();
     
@@ -50,7 +52,7 @@ int main(int argc, const char *argv[]) {
     AdminAccount *admin_it = static_cast<AdminAccount*>(account);
 
     admin_it->showName();
-    std::cout << "CFI Should prevent the actions below:" << std::endl;
+    printf("CFI Should prevent the actions below:\n");
     admin_it->adminStuff();
 
     return 0;

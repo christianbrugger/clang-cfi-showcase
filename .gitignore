@@ -10,3 +10,6 @@ cfi_cast_strict
 cfi_derived_cast
 no_cfi_cast_strict
 no_cfi_derived_cast
+
+default
+hidden
